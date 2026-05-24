@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STUDENT MODULE</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+
+        <div class="box-container-wrapper">
+
+            <div class="title-box">
+                <h1>Student Record</h1>
+                <p>Web Systems & Technologies - A.Y. 2024-2025</p>
+            </div>
+
+            <form id="studentForm">
+                <div class="box-container">
+
+                    <h2 class="section-personal">PERSONAL INFORMATION</h2>
+
+                    <label for="studentNum">STUDENT NUMBER</label>
+                    <input type="text" id="studentNum" name="studentNum" placeholder="e.g. 2024-10042" required>
+
+                    <label for="fn">FIRST NAME</label>
+                    <input type="text" id="fn" name="fn" placeholder="e.g. Maria" required>
+
+                    <label for="ln">LAST NAME</label>
+                    <input type="text" id="ln" name="ln" placeholder="e.g. Santos" required>
+
+                    <label for="mail">EMAIL ADDRESS</label>
+                    <input type="email" id="mail" name="mail" placeholder="e.g. maria@student.edu" required>
+
+                    <h2 class="section-academic">ACADEMIC INFORMATION</h2>
+
+                    <div class="form-row">
+                        <div class="col">
+                            <label for="blockId">ASSIGNED BLOCK</label>
+                            <select name="blockId" id="blockId" required></select>
+                        </div>
+                        <div class="col">
+                            <label for="yearLevel">YEAR LEVEL</label>
+                            <select name="yearLevel" id="yearLevel" required>
+                                <option value="">-- Select --</option>
+                                <option value="1st Year">1st Year</option>
+                                <option value="2nd Year">2nd Year</option>
+                                <option value="3rd Year">3rd Year</option>
+                                <option value="4th Year">4th Year</option>
+                            </select>
+                        </div>
+                    </div>
+                     
+                    <label for="semester">SEMESTER</label>
+                    <select name="semester" id="semester" required>
+                        <option value="">-- Select --</option>
+                        <option value="1st">1st Semester</option>
+                        <option value="2nd">2nd Semester</option>
+                    </select>
+
+                    <label for="status">STATUS</label>
+                    <select name="status" id="status" required>
+                        <option value="Active">Active</option>
+                        <option value="Inactive">Inactive</option>
+                    </select>
+
+                    <button type="submit">Add Student</button>
+                </div>
+            </form>
+        </div>
+
+        <div class="right-panel">
+
+            <div class="stats-row">
+                <div class="total">
+                    <h1>TOTAL STUDENTS</h1>
+                    <h2 id="statTotal">0</h2>
+                    <p>Enrolled in database</p>
+                </div>
+                <div class="activestuds">
+                    <h1>ACTIVE STUDENTS</h1>
+                    <h2 id="statActive">0</h2>
+                    <p id="statActivePct">0% of total enrolled</p>
+                </div>
+                <div class="inact">
+                    <h1>INACTIVE</h1>
+                    <h2 id="statInactive">0</h2>
+                    <p>Not currently active</p>
+                </div>
+            </div>
+
+            <div class="filters-bar">
+                <input id="searchBox" type="text" placeholder="Search name or ID...">
+                <select id="filterBlock"><option value="All">All blocks</option></select>
+                <select id="filterYear"><option value="All">All years</option></select>
+            </div>
+
+            <div class="student-table-container">
+                <h2>REGISTERED STUDENTS MASTER LIST</h2>
+                <div class="table-scroll-area">
+                    <table id="studentTable">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Student Number</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Assigned Block</th>
+                                <th>Year Level</th>
+                                <th>Semester</th>
+                                <th>Status</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="studentTableBody"></tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>        
+
+    <script src="script.js"></script>
+</body>
+</html>
