@@ -88,11 +88,14 @@ This section contains the mandatory individual project reflections for each team
 
 ### 👤 Member 1: Brizuela, Atasha Karene B.
 
-* **What was the most difficult part of interpreting the original author's logic?** 
+* **What was the most difficult part of interpreting the original author's logic?**<br> 
+  Our reviewed capstone project is entitled “Class Scheduler System with Recommender Engine.” The most difficult part for me was understanding the Recommender Engine feature. At first, it was quite confusing because I thought it was something very complex. Even the word “engine” itself made me feel overwhelmed, and I had difficulty understanding how it worked and how it contributed to the system.
+  
+* **What technical challenges did you face during recreation?**<br>
+  One of the biggest challenges I faced was working on the backend part of the system, especially using JavaScript to connect the frontend and backend. I did not fully know how to make them work together at first. Fortunately, learning resources such as W3Schools and AI tools helped guide me through the step-by-step process of achieving the connection and understanding how it works.
 
-* **What technical challenges did you face during recreation?** 
-
-* **How would you improve this module further?** 
+* **How would you improve this module further?**<br> 
+  If given the opportunity to improve this module further, I would make the interface more user-friendly and easier to navigate. I would also improve the recommender engine by making the scheduling suggestions more accurate and efficient. Additionally, I would add better error handling and clearer notifications to improve the overall user experience.
 
 ---
 
