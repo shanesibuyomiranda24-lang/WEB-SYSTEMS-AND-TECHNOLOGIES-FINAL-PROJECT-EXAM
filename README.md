@@ -13,7 +13,7 @@
   * Nebres, Ma. Gella Rose V.
   * Saavedra, Kierzhan Ric H.
 * **Module Scope:** This module isolates and manages the complete lifecycle of student registration records. It tracks academic enrollment distributions across different class blocks, manages real-time active/inactive student statuses, and dynamically calculates enrollment analytics dashboard metrics without maintaining or relying on an isolated course-table dependency.
-* **Rationale:** Traditional student record keeping often suffers from data redundancy and mismatched column alignments when flat fields change. By decoupling structural student metadata from a rigid standalone course table and instead dynamically pulling related context via Class Blocks, this module minimizes database size, enforces strict structural validation rules, and presents a clean, responsive layout interface for administrators.
+* **Rationale:** Traditional student record keeping often suffers from data redundancy and mismatched column alignments when flat fields change and this module minimizes database size, enforces strict structural validation rules, and presents a clean, responsive layout interface for administrators.
 
 ---
 
@@ -67,16 +67,20 @@ This section describes how the application implements each CRUD (Create, Read, U
 ### Create (C) — Add New Student
 * **Feature Description:** Allows administrators to register a new student profile into the system using a dedicated input form. Instead of manually typing courses or text parameters, the system maps assignment relationships directly using a dynamic selection dropdown powered by backend relational data.
 * **Form Validation Rules:**
-  * All active form fields (`Student Number`, `First Name`, `Last Name`, `Email Address`, `Assigned Block`, `Year Level`, `Semester`, and `Status`) use the native browser `required` attribute to lock out partial or blank submissions.
-  * The `Email` input field validates that data follows a standard corporate text template string structure (e.g., `name@student.edu`) before allowing submission.
+  * All active form fields (`Student Number`, `First Name`, `Last Name`, `Email Address`, `Assigned Block`, `Year Level`, `Semester`, and `Status`) use the `required` attribute to lock out partial or blank submissions.
+  * The `Email` input field validates that data follows a standard email format.
 
 ### Read (R) — Master Roster & Live Analytics Dashboard
-* **Feature Description:** Dynamically fetches and displays all registered student rows from the database inside a responsive data grid layout optimized into a 10-column tracking architecture. It also computes real-time summary indicators inside top-level metric card displays.
-* **Relational Database Integration:** Rather than pulling un-normalized flat records, the backend runs a SQL `INNER JOIN` query to combine tables on the fly:
-  ```sql
-  SELECT s.StudentID, s.StudentNumber, s.FirstName, s.LastName, s.Email, s.IsActive, b.BlockName, b.YearLevel, b.Semester 
-  FROM student s 
-  INNER JOIN block b ON s.BlockID = b.BlockID;
+* **Feature Description:** Dynamically fetches and displays all registered student rows from the database. It also computes real-time summary indicators inside top-level metric card displays.
+
+### Update (U) — Asynchronous Status Toggle
+
+* **Feature Description:** Provides a status toggle button to instantly shift a student's enrollment status between active and inactive.
+    * The backend implements a secure verification guard clause to ensure the target record exists before running a binary switch calculation to swap the bit flag (flipping `1` to `0`, or `0` to `1`).
+
+### Delete (D) — Permanent Record Deletion Lifecycle
+
+* **Feature Description:** Permanently purges a target student's metadata row profile from the active relational registry table.
 
 ## 6. Individual Reflection
 
