@@ -79,3 +79,40 @@ This section describes how the application implements each CRUD (Create, Read, U
   SELECT s.StudentID, s.StudentNumber, s.FirstName, s.LastName, s.Email, s.IsActive, b.BlockName, b.YearLevel, b.Semester 
   FROM student s 
   INNER JOIN block b ON s.BlockID = b.BlockID;
+
+## 6. Individual Reflection
+
+This section contains the mandatory individual project reflections for each team member.
+
+---
+
+### 👤 Member 1: Brizuela, Atasha Karene B.
+
+* **What was the most difficult part of interpreting the original author's logic?** 
+
+* **What technical challenges did you face during recreation?** 
+
+* **How would you improve this module further?** 
+
+---
+
+### 👤 Member 2: Miranda, Shane S.
+
+* **What was the most difficult part of interpreting the original author's logic?**
+  The most difficult part of interpreting the original authors' logic was that they did not include students in their system; however, the architectural system handles classrooms, timeslots, and majors.
+
+* **What technical challenges did you face during recreation?**
+  The technical challeneges I faced during the recreation was implementing the JavaScript in managing asynchronous data synchronization across multiple backend endpoints while maintaining a smooth single-page interface.
+
+* **How would you improve this module further?**
+  I would improve this module further by adding an 'export pdf' in the system, so that administrators can extract data cleanly and for archiving.
+
+---
+
+### 👤 Member 3: Non, Cyra Mae M.
+
+* **What was the most difficult part of interpreting the original author's logic?** 
+
+* **What technical challenges did you face during recreation?**
+
+* **How would you improve this module further?** 
