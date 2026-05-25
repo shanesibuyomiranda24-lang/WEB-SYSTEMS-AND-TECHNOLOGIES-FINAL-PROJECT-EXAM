@@ -69,8 +69,6 @@ This section describes how the application implements each CRUD (Create, Read, U
 * **Form Validation Rules:**
   * All active form fields (`Student Number`, `First Name`, `Last Name`, `Email Address`, `Assigned Block`, `Year Level`, `Semester`, and `Status`) use the native browser `required` attribute to lock out partial or blank submissions.
   * The `Email` input field validates that data follows a standard corporate text template string structure (e.g., `name@student.edu`) before allowing submission.
-  * The selected block maps directly to its unique database integer primary key (`BlockID`), preventing invalid structural assignments.
-* **Error Handling:** If a user tries to submit a duplicate unique entry or if the backend database disconnects, the Express server intercepts the failure and returns a clean `500 Internal Server Error` message alert via browser alert boxes rather than crashing the system frontend loop.
 
 ### Read (R) — Master Roster & Live Analytics Dashboard
 * **Feature Description:** Dynamically fetches and displays all registered student rows from the database inside a responsive data grid layout optimized into a 10-column tracking architecture. It also computes real-time summary indicators inside top-level metric card displays.
