@@ -98,21 +98,24 @@ This section contains the mandatory individual project reflections for each team
 
 ### 👤 Member 2: Miranda, Shane S.
 
-* **What was the most difficult part of interpreting the original author's logic?**
+* **What was the most difficult part of interpreting the original author's logic?**<br>
   The most difficult part of interpreting the original authors' logic was that they did not include students in their system; however, the architectural system handles classrooms, timeslots, and majors.
 
-* **What technical challenges did you face during recreation?**
+* **What technical challenges did you face during recreation?**<br>
   The technical challeneges I faced during the recreation was implementing the JavaScript in managing asynchronous data synchronization across multiple backend endpoints while maintaining a smooth single-page interface.
 
-* **How would you improve this module further?**
+* **How would you improve this module further?**<br>
   I would improve this module further by adding an 'export pdf' in the system, so that administrators can extract data cleanly and for archiving.
 
 ---
 
 ### 👤 Member 3: Non, Cyra Mae M.
 
-* **What was the most difficult part of interpreting the original author's logic?** 
+* **What was the most difficult part of interpreting the original author's logic?**<br>
+  The difficult part of interpreting the original author's logic is if the class scheduler is for the professor only or also for the student, since they did not add the students in their system, which should be one of the main focuses.
 
-* **What technical challenges did you face during recreation?**
+* **What technical challenges did you face during recreation?**<br>
+  I did not face many challenges since I just handled the html and one of my group mates handled the CSS for styling. However, it is rather off to implement a html without the CSS.
 
-* **How would you improve this module further?** 
+* **How would you improve this module further?** <br>
+ I would have improved this module by adding stronger backend validation, security measures such as parameterized SQL queries, and more specific error handling responses to ensure data integrity and system reliability.
