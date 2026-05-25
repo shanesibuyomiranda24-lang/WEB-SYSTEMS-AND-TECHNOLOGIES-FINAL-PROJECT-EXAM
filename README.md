@@ -119,3 +119,43 @@ This section contains the mandatory individual project reflections for each team
 
 * **How would you improve this module further?** <br>
  I would have improved this module by adding stronger backend validation, security measures such as parameterized SQL queries, and more specific error handling responses to ensure data integrity and system reliability.
+
+---
+
+## 🚀 Installation & Setup Instructions
+
+Ensure you have the following software installed:
+* [Node.js](https://nodejs.org/) (v16.x or higher recommended)
+* [XAMPP](https://www.apachefriends.org/) (For running Apache and MySQL)
+* [Git](https://git-scm.com/) (Optional, for cloning)
+
+---
+
+### Step 1: Clone or Extract the Repository
+Clone the repository from GitHub or extract the project zip folder into your local workspace directory:
+```bash
+git clone <your-repository-link-here>
+cd <your-project-folder-name>
+```
+### Step 2: Set Up the MySQL Relational Database
+1. Launch the XAMPP control panel and start both the Apache and MySQL modules.<br>
+2. Open your web browser and navigate to http://localhost/phpmyadmin/.<br>
+3. Click on New in the left sidebar to create a database. Name it exactly: student_table.<br>
+4. Select the newly created database, click on the Import tab in the top menu.<br>
+5. Click Choose File and select your project's exported setup script (e.g., student_table.sql found within this repository folder).<br>
+6. Scroll down and click Import (or Go) to build out the relational student and block structures.<br>
+
+### Step 3: Install backend dependencies
+```bash
+npm install
+```
+
+### Step 4: Run the Backend Server
+```bash
+node server.js
+```
+
+### Step 5: Launch the Frontend Application
+1. Locate the file named index.html in your project folder.<br>
+2. Double-click to open it inside any modern web browser (Chrome, Edge, Firefox).<br>
+3. The dashboard is now active! You can add new students, toggle statuses, delete items, and test live keyword filtering.
