@@ -1,1 +1,81 @@
-# WEB-SYSTEMS-AND-TECHNOLOGIES-FINAL-PROJECT-EXAM
+# WEB SYSTEMS AND TECHNOLOGIES: FINAL PROJECT DOCUMENTATION
+
+**Module Focus: Relational Student CRUD Management System**
+
+---
+
+## 1. Project Overview
+
+* **Original Project Title:** CLASS SCHEDULER SYSTEM WITH RECOMMENDER ENGINE
+* **Original Authors/Source:**
+  * Asia, Annie Rose M.
+  * Bitare, John Reymar M.
+  * Nebres, Ma. Gella Rose V.
+  * Saavedra, Kierzhan Ric H.
+* **Module Scope:** This module isolates and manages the complete lifecycle of student registration records. It tracks academic enrollment distributions across different class blocks, manages real-time active/inactive student statuses, and dynamically calculates enrollment analytics dashboard metrics without maintaining or relying on an isolated course-table dependency.
+* **Rationale:** Traditional student record keeping often suffers from data redundancy and mismatched column alignments when flat fields change. By decoupling structural student metadata from a rigid standalone course table and instead dynamically pulling related context via Class Blocks, this module minimizes database size, enforces strict structural validation rules, and presents a clean, responsive layout interface for administrators.
+
+---
+
+## 2. Technology Stack
+
+* **Frontend Framework:** Vanilla JavaScript (ES6+ Asynchronous DOM manipulation)
+* **Styling:** Native CSS3 (utilizing CSS Grid layout architecture)
+* **Backend Framework:** Node.js with Express.js application routing middleware
+* **Database:** MySQL 8.0 relational database engine (managed via XAMPP phpMyAdmin)
+* **Additional Libraries:**
+  * `cors`: Handles Cross-Origin Resource Sharing security protocols between frontend and backend environments.
+  * `mysql2`: High-performance asynchronous MySQL connector pool utility utilizing Promises.
+
+---
+
+## 3. Database Design
+
+This module implements a normalized **One-to-Many ($1:\infty$) relationship**. A single academic class block can contain many registered students, while an individual student can be assigned to exactly one class block.
+
+Below is the Entity-Relationship Diagram for the student registration module showing the relationship link:
+
+![Entity Relationship Diagram](ERD.jpeg)
+
+### Table Structure Specifications
+
+#### Table A: `block`
+* `BlockID`: **INT(11)** | *Primary Key* | Auto-Increment anchor.
+* `CourseID`: **INT(11)** | Foreign reference tracking structural programs.
+* `BlockName`: **VARCHAR(100)** | e.g., "BSIT 1-A", "BSCS 2-A".
+* `YearLevel`: **INT(11)** | Digital curriculum tracker layer.
+* `Semester`: **VARCHAR(20)** | e.g., "1st", "2nd".
+* `AcademicYear`: **YEAR(4)** | Standard institutional calendar footprint.
+* `MaxStudents`: **INT(11)** | Classroom size threshold index.
+* `IsActive`: **TINYINT(1)** | Binary switch status tracker.
+
+#### Table B: `student`
+* `StudentID`: **INT(11)** | *Primary Key* | System internal identifier (Auto-Incrementing).
+* `BlockID`: **INT(11)** | *Foreign Key* | Connects directly to `block.BlockID` with `CASCADE` index rules.
+* `StudentNumber`: **VARCHAR(20)** | Unique alpha-numeric tracking sequence.
+* `FirstName`: **VARCHAR(50)** | Legal text entry parameter.
+* `LastName`: **VARCHAR(50)** | Surname tracking entry parameter.
+* `Email`: **VARCHAR(100)** | Validated university endpoint address.
+* `IsActive`: **TINYINT(1)** | Current registration presence flag.
+
+---
+
+## 4. Module Features
+
+This section describes how the application implements each CRUD (Create, Read, Update, Delete) operation to handle student tracking data.
+
+### Create (C) — Add New Student
+* **Feature Description:** Allows administrators to register a new student profile into the system using a dedicated input form. Instead of manually typing courses or text parameters, the system maps assignment relationships directly using a dynamic selection dropdown powered by backend relational data.
+* **Form Validation Rules:**
+  * All active form fields (`Student Number`, `First Name`, `Last Name`, `Email Address`, `Assigned Block`, `Year Level`, `Semester`, and `Status`) use the native browser `required` attribute to lock out partial or blank submissions.
+  * The `Email` input field validates that data follows a standard corporate text template string structure (e.g., `name@student.edu`) before allowing submission.
+  * The selected block maps directly to its unique database integer primary key (`BlockID`), preventing invalid structural assignments.
+* **Error Handling:** If a user tries to submit a duplicate unique entry or if the backend database disconnects, the Express server intercepts the failure and returns a clean `500 Internal Server Error` message alert via browser alert boxes rather than crashing the system frontend loop.
+
+### Read (R) — Master Roster & Live Analytics Dashboard
+* **Feature Description:** Dynamically fetches and displays all registered student rows from the database inside a responsive data grid layout optimized into a 10-column tracking architecture. It also computes real-time summary indicators inside top-level metric card displays.
+* **Relational Database Integration:** Rather than pulling un-normalized flat records, the backend runs a SQL `INNER JOIN` query to combine tables on the fly:
+  ```sql
+  SELECT s.StudentID, s.StudentNumber, s.FirstName, s.LastName, s.Email, s.IsActive, b.BlockName, b.YearLevel, b.Semester 
+  FROM student s 
+  INNER JOIN block b ON s.BlockID = b.BlockID;
