@@ -19,10 +19,10 @@
 
 ## 2. Technology Stack
 
-* **Frontend Framework:** Vanilla JavaScript (ES6+ Asynchronous DOM manipulation)
-* **Styling:** Native CSS3 (utilizing CSS Grid layout architecture)
-* **Backend Framework:** Node.js with Express.js application routing middleware
-* **Database:** MySQL 8.0 relational database engine (managed via XAMPP phpMyAdmin)
+* **Frontend Framework:** JavaScript
+* **Styling:** CSS3
+* **Backend Framework:** Node.js with Express.js
+* **Database:** MySQL (managed via XAMPP phpMyAdmin)
 * **Additional Libraries:**
   * `cors`: Handles Cross-Origin Resource Sharing security protocols between frontend and backend environments.
   * `mysql2`: High-performance asynchronous MySQL connector pool utility utilizing Promises.
