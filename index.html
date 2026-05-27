@@ -35,23 +35,9 @@
 
                     <h2 class="section-academic">ACADEMIC INFORMATION</h2>
 
-                    <div class="form-row">
-                        <div class="col">
-                            <label for="blockId">ASSIGNED BLOCK</label>
-                            <select name="blockId" id="blockId" required></select>
-                        </div>
-                        <div class="col">
-                            <label for="yearLevel">YEAR LEVEL</label>
-                            <select name="yearLevel" id="yearLevel" required>
-                                <option value="">-- Select --</option>
-                                <option value="1st Year">1st Year</option>
-                                <option value="2nd Year">2nd Year</option>
-                                <option value="3rd Year">3rd Year</option>
-                                <option value="4th Year">4th Year</option>
-                            </select>
-                        </div>
-                    </div>
-                     
+                    <label for="blockId">YEAR AND BLOCK</label>
+                    <select name="blockId" id="blockId" required></select>
+
                     <label for="semester">SEMESTER</label>
                     <select name="semester" id="semester" required>
                         <option value="">-- Select --</option>
@@ -66,6 +52,7 @@
                     </select>
 
                     <button type="submit">Add Student</button>
+
                 </div>
             </form>
         </div>
@@ -93,7 +80,6 @@
             <div class="filters-bar">
                 <input id="searchBox" type="text" placeholder="Search name or ID...">
                 <select id="filterBlock"><option value="All">All blocks</option></select>
-                <select id="filterYear"><option value="All">All years</option></select>
             </div>
 
             <div class="student-table-container">
